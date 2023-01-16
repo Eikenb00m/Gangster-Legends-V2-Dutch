@@ -173,12 +173,12 @@ class page {
                 }                
 
                 if ($user) {
-                    $this->addMenu("actions", "Actions", "actionMenu", 10);
+                    $this->addMenu("actions", "Acties", "actionMenu", 10);
                     $this->addMenu("location", $locationName, "locationMenu", 20);
-                    $this->addMenu("money", "Money", "moneyMenu", 30);
-                    $this->addMenu("casino", "Gambling", "casinoMenu", 40);
-                    $this->addMenu("gang", "Gangs", "gangMenu", 50);
-                    $this->addMenu("kill", "Murder", "killMenu", 60);
+                    $this->addMenu("money", "Geld", "moneyMenu", 30);
+                    $this->addMenu("casino", "Gokken", "casinoMenu", 40);
+                    $this->addMenu("gang", "Families", "gangMenu", 50);
+                    $this->addMenu("kill", "Moord", "killMenu", 60);
                     $this->addMenu("points", $s->loadSetting("pointsName"), "pointsMenu", 70);
                     $this->addMenu("account", "Account", "accountMenu", 80);
                 } else {
@@ -225,11 +225,11 @@ class page {
                 $this->pageHTML = $this->template->mainTemplate->pageMain;
                 
             } else {
-                die("Module template not found!" . 'modules/installed/' . $page . 'tpl.php');
+                die("Module template niet gevonden!" . 'modules/installed/' . $page . 'tpl.php');
             }
             
         } else {
-            die("404 The page $page was not found!");
+            die("404 De pagina $page was niet gevonden!");
         }
         
     }

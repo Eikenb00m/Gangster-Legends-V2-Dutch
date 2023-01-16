@@ -82,10 +82,10 @@
         public $propertyOwnership = '
             {#unless closed}
                 {#if user}
-                    Owned by {>userName}
+                    Eigenaar: {>userName}
                 {/if}
                 {#unless user}
-                    No Owner - <a href="?page={module}&action=own">Buy property $1,000,000</a>
+                    Geen eigenaar - <a href="?page={module}&action=own">Buy property $1,000,000</a>
                 {/unless}
 
                 {#if userOwnsThis}
@@ -97,10 +97,10 @@
         ';
 
         public $levelUpNotification = '
-            You have ranked up, you are now a {rankName}.
+            Gefeliciteerd, je bent een rang omhoog gegaan. Je bent nu een {rankName}.
             {#if rewards}
                 <br />
-                <strong>Rewards</strong>
+                <strong>Beloningen</strong>
                 <br />
                 <ul>
                     {#each rewards}

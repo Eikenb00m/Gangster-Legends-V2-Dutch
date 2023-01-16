@@ -39,12 +39,12 @@ class Disk implements Cache
     public function __construct($path, $prefix = '', $suffix = '')
     {
         if (empty($path)) {
-            throw new InvalidArgumentException('Must specify disk cache path');
+            throw new InvalidArgumentException('U moet een cache pad opgeven');
         } elseif (!is_dir($path)) {
             @mkdir($path, 0777, true);
 
             if (!is_dir($path)) {
-                throw new RuntimeException('Could not create cache file path');
+                throw new RuntimeException('Kan cache pad niet maken');
             }
         }
 

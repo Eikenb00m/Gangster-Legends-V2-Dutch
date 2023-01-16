@@ -177,7 +177,7 @@
             }
 
             if (!$roundID) {
-                return "Registration is currently closed!";
+                return "Registratie is momenteel gesloten!";
             }
 
             $check = $this->db->prepare("
@@ -193,7 +193,7 @@
             $checkInfo = $check->fetchObject();
             
             if (isset($checkInfo->U_id)) { 
-                return 'Username or EMail are in use!';
+                return 'De gebruikersnaam of email zijn al in gebruik!';
             } else {
 
                 $validateUserEmail = !!$settings->loadSetting("validateUserEmail");
@@ -256,8 +256,8 @@
 
             $gameName = $settings->loadSetting("game_name");
             $activationCode = $this->activationCode($id, $username);
-            $subject = $gameName . " - Registration";
-            $body = "$username your activation code for $gameName is $activationCode, after you have logged in please enter this when prompted.";
+            $subject = $gameName . " - Registratie";
+            $body = "$username je activatie code voor $gameName is $activationCode, voer de code na het inloggen in.";
             mail($email, $subject, $body, $headers);
         }
 
@@ -412,7 +412,7 @@
             if (!$this->info->US_gang) {
                 return array(
                     "id" => 0, 
-                    "name" => "None"
+                    "name" => "Geen"
                 );
             }
 
@@ -434,7 +434,7 @@
             $result = $query->fetchObject();
             
             if (!$result) {
-                return (object) array("I_name" => "None");
+                return (object) array("I_name" => "Geen");
             } 
 
             return $result;
@@ -449,7 +449,7 @@
             $result = $query->fetchObject();
             
             if (!$result) {
-                return (object) array("I_name" => "None");
+                return (object) array("I_name" => "Geen");
             } 
 
             return $result;
@@ -526,12 +526,12 @@
                 $rewards = array();
 
                 if ($newRank->R_bulletReward) $rewards[] = array( 
-                    "name" => "Bullets",
+                    "name" => "Kogels",
                     "value" => number_format($newRank->R_bulletReward) 
                 );
                 
                 if ($newRank->R_cashReward) $rewards[] = array( 
-                    "name" => "Cash" ,
+                    "name" => "Contant" ,
                     "value" => $page->money($newRank->R_cashReward) 
                 );
 

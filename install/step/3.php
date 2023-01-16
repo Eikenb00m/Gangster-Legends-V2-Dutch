@@ -14,7 +14,7 @@
 			) {
 
 				if ($_POST["pass"] != $_POST["confirm"]) {
-					echo '<div class="alert alert-danger">Passwords do not match</div>';
+					echo '<div class="alert alert-danger">De wachtwoorden komen niet overeen!</div>';
 				} else {
 
 					$u = new User();
@@ -40,31 +40,31 @@
 			
 
 			if (!count($admins)) {
-				heading(3, "Create Admin Account");
+				heading(3, "Aanmaken Admin Account");
 
 					echo '
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<form method="post" action="#">
 									<div class="form-group">
-										<label for="exampleInputEmail1">Email Address</label>
+										<label for="exampleInputEmail1">Email adres</label>
 										<input type="text" class="form-control" name="email" value="">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Username</label>
+										<label for="exampleInputEmail1">Gebruikersnaam</label>
 										<input type="text" class="form-control" name="user">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Password</label>
+										<label for="exampleInputEmail1">Wachtwoord</label>
 										<input type="password" class="form-control" name="pass">
 									</div>
 									<div class="form-group">
-										<label for="exampleInputEmail1">Confirm Password</label>
+										<label for="exampleInputEmail1">Bevestig Wachtwoord</label>
 										<input type="password" class="form-control" name="confirm">
 									</div>
 									<div class="text-right">
 										<button type="submit" class="btn btn-success">
-											Create Account
+											Account maken!
 										</button>
 									</div>
 
@@ -74,12 +74,12 @@
 					';
 
 			} else {
-				success(3, "Create Admin Account");
-				echo '<ol><li>Admin Account created</li></ol>';
+				success(3, "Aanmaken Admin Account");
+				echo '<ol><li>Admin Account gemaakt</li></ol>';
 			}
 
 
 
 		} else {
-			heading(3, "Create Admin Account");
+			heading(3, "Aanmaken Admin Account");
 		}

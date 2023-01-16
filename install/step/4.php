@@ -21,28 +21,28 @@
 		if (count($admins)) {
 
 			if (isset($_GET["remove"])) {
-				success(4, "Remove Installer");
-				echo '<ol><li>Directory removed</li></ol>';
+				success(4, "Verwijder Installer");
+				echo '<ol><li>Map verwijderd</li></ol>';
 				delete_files("../install");
-				success(5, "Complete!");
-				echo '<ol><li>Redirecting you in 5 seconds</li></ol>';
+				success(5, "Klaar!");
+				echo '<ol><li>Doorsturen in 5 seconden</li></ol>';
 				echo '<script>setTimeout(function () { document.location = "../" }, 5000); </script>';
 
 			} else {
-				heading(4, "Remove Installer");
+				heading(4, "Verwijder Installer");
 				echo '<p>
 					<a href="?remove=true" class="btn btn-danger">
-						Finish Install and remove installer
+						Rond installatie af en verwijder de installatie map.
 					</a>
 				</p>';
-				heading(5, "Complete!");
+				heading(5, "Klaar!");
 			}
 
 		} else {
-			heading(4, "Remove Installer");
-			heading(5, "Complete!");
+			heading(4, "Verwijder Installer");
+			heading(5, "Klaar!");
 		}
 	} else {
-		heading(4, "Remove Installer");
-		heading(5, "Complete!");
+		heading(4, "Verwijder Installer");
+		heading(5, "Klaar!");
 	}

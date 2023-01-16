@@ -5,7 +5,7 @@
 		if ($db) {
 			$tables = $db->selectAll("SHOW TABLES;");
 			
-			success(2, "Create Database");
+			success(2, "Genereer Database");
 
 			if (!count($tables)) {
 			
@@ -36,13 +36,13 @@
 			$settings->update("glCoreHash", $hash);
 
 			echo '<ol>
-				<li>Database schema created!</li>
-				<li>Default data inserted!</li>
+				<li>Database schema gegenereerd!</li>
+				<li>Standaard data ingevoegd!</li>
 			</ol>';
 
 
 
 
 		} else {
-			heading(2, "Create Database");
+			heading(2, "Genereren Database");
 		}

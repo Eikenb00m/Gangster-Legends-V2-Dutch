@@ -54,10 +54,10 @@
             
             $return = '';
             $return .= '<div class="well error-well">';
-            $return .= '<h1>There was an error!</h1>';
+            $return .= '<h1>Er is een fout opgetreden!</h1>';
             $return .= '<p style="font-family: monospace;">';
-            $return .= '<strong>File:</strong> '.$file;
-            $return .= '<br /><strong>Line:</strong> '.$line;
+            $return .= '<strong>Bestand:</strong> '.$file;
+            $return .= '<br /><strong>Regel:</strong> '.$line;
             $return .= '<br /><strong>Error: </strong> '.$string;
             $return .= '<br /><strong>Type:</strong> '.$type;
             $return .= '</p>';
@@ -67,9 +67,8 @@
             $this->log(json_encode($errorArray), $major);
                 
             if (!$config["debug"] && $major) {
-                echo '<h1>Sorry something went very wrong!</h1>';
-                echo '<p>The error has been logged and waiting for a developer to review this issue.</p>';
-                echo '<p>If you are the developer you can enable better dubuging by editing config.php and enabling debug</p>';
+                echo '<h1>Sorry er ging iets mis!</h1>';
+                echo '<p>De foutmelding is ogeslagen en wacht op een ontwikkelaar om het probleem te beoordeelen.</p>';
                 exit;
                 
             } else if ($config["debug"]) {

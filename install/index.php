@@ -55,13 +55,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Gangster Legends V2 - Installer</title>
+		<title>Gangster Legends V2 Dutch - Installer</title>
 		<link href="../themes/default/css/bootstrap.min.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="container">
 			<h1 class="text-center">
-				Gangster Legends V2 Installer
+				Gangster Legends V2 Dutch Installer
 			</h1>
 			<?php
 				include "step/1.php";

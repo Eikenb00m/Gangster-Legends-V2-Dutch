@@ -38,7 +38,7 @@
 	try {
 		include "../dbconn.php";
 		success(1, "Database Login");
-		echo "<ol><li>Config file created!</li></ol>";
+		echo "<ol><li>Config file gegenereerd!</li></ol>";
 	} catch (Exception $e) {
 		failed(1, "Database Login");
 
@@ -47,15 +47,15 @@
 				<div class="panel-body">
 					<form method="post" action="#">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Hostname</label>
+							<label for="exampleInputEmail1">Hostnaam</label>
 							<input type="text" class="form-control" name="host" value="localhost">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Username</label>
+							<label for="exampleInputEmail1">Gebruikersnaam</label>
 							<input type="text" class="form-control" name="user">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Password</label>
+							<label for="exampleInputEmail1">Wachtwoord</label>
 							<input type="password" class="form-control" name="pass">
 						</div>
 						<div class="form-group">
@@ -63,7 +63,7 @@
 							<input type="text" class="form-control" name="database">
 						</div>
 						<div class="text-right">
-							<button type="submit" class="btn btn-success">Test Connection</button>
+							<button type="submit" class="btn btn-success">Test Verbinding</button>
 						</div>
 
 					</form>

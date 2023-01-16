@@ -55,7 +55,7 @@ class FilesystemLoader implements Loader
         foreach ($this->_baseDir as $dir) {
             if (!is_dir($dir)) {
                 throw new \RuntimeException(
-                    'FilesystemLoader baseDir must be a directory: ' . $dir
+                    'FilesystemLoader baseDir moet een map zijn: ' . $dir
                 );
             }
         }

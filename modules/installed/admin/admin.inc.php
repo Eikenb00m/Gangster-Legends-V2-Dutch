@@ -39,7 +39,7 @@
 
             if (!$this->moduleInfo || !$this->moduleInfo["admin"]) {
 
-                return $this->html = $this->page->buildElement("error", array("text"=>"This module does not exits or have an admin panel"));
+                return $this->html = $this->page->buildElement("error", array("text"=>"Deze module bestaat niet of heeft geen admin paneel"));
             }
             
             $items = array();

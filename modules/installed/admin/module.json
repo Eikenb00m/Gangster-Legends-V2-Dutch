@@ -1,7 +1,7 @@
 {
     "name": "Admin Panel",
     "version": "1.0.1",
-    "description": "This module enables the administration panel",
+    "description": "Deze module activeerd het admin paneel",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"

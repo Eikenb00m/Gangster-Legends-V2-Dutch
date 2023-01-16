@@ -94,23 +94,23 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            User Account
+                            Gebruikers account
                         </div>
                         <div class="list-group">
                             <div class="list-group-item">
-                                <strong>Username: </strong>
+                                <strong>Gebruikersnaam: </strong>
                                 <small class="pull-right">
                                     {>userName}
                                 </small>
                             </div>
                             <div class="list-group-item">
-                                <strong>Money: </strong>
+                                <strong>Geld: </strong>
                                 <small class="pull-right" data-ajax-element="money">
                                     {money}
                                 </small>
                             </div>
                             <div class="list-group-item">
-                                <strong>Bullets: </strong>
+                                <strong>Kogels: </strong>
                                 <small class="pull-right" data-ajax-element="bullets">
                                     {bullets}
                                 </small>
@@ -128,13 +128,13 @@
                                 </small>
                             </div>
                             <div class="list-group-item">
-                                <strong>Location: </strong>
+                                <strong>Locatie: </strong>
                                 <small class="pull-right" data-ajax-element="location">
                                     {location}
                                 </small>
                             </div>
                             <div class="list-group-item">
-                                <strong>Health: </strong>
+                                <strong>Gezondheid: </strong>
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-success" style="width: {health}%" data-ajax-element="health" data-ajax-type="css" data-ajax-css="width" data-ajax-value-postfix="%"></div>
                                 </div>
@@ -143,11 +143,11 @@
                                 </small>
                             </div>
                             <div class="list-group-item">
-                                <strong>Rank: </strong>
+                                <strong>Rang: </strong>
 
                                 {#if maxRank}
                                     <small class="pull-right" data-ajax-element="rank">
-                                        {rank} (Max Rank)
+                                        {rank} (Max Rang)
                                     </small>
                                 {else}
                                     <div class="progress">

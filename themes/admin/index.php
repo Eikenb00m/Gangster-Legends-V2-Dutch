@@ -35,16 +35,16 @@
 				</div>
 				<form class="navbar-form navbar-left" role="search" method="post" action="?page=admin&module=users&action=view">
 					<div class="form-group">
-						<input type="text" name="user" class="form-control" placeholder="Find User">
+						<input type="text" name="user" class="form-control" placeholder="Vind Gebruiker">
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Zoek</button>
 				</form>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="?page=admin&module=admin">ACP Dashboard</a></li>
-						<li><a href="?">Back To Game</a></li>
+						<li><a href="?page=admin&module=admin">Admin Dashboard</a></li>
+						<li><a href="?">Terug naar het spel</a></li>
 						{#if adminModule}
-							<li><a href="?page={adminModule}">View Module</a></li>
+							<li><a href="?page={adminModule}">Bekijk Module</a></li>
 						{/if}
 						<li><a href="?page=logout">Logout</a></li>
 				 	</ul>

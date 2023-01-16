@@ -9,7 +9,7 @@
             if (isset($this->methodData->submit)) {
                 $settings->update("bankTax", $this->methodData->bankTax);
                 $this->html .= $this->page->buildElement("success", array(
-                    "text" => "Options updated."
+                    "text" => "Instellingen bijgewerkt."
                 ));
             }
 

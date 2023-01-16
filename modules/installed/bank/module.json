@@ -1,7 +1,7 @@
 {
     "name": "Bank",
     "version": "1.0.0",
-    "description": "This module allows a user to deposit and withdraw money from a bank",
+    "description": "Met deze module kan een gebruiker geld storten en opnemen bij een bank",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"

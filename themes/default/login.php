@@ -72,7 +72,7 @@
                                     {nextRound.name} starts in <span data-timer-type="inline" data-timer="{nextRound.start}"></span> <br />
                                     <small>{__roundDate nextRound.start}</small>
                                 {else}
-                                    {game_name} is currently closed!
+                                    {game_name} is momenteel gesloten!
                                 {/if}
                             </div>
                         {/unless}
@@ -82,7 +82,7 @@
 
                 <div class="panel panel-default login-form">
                     <div class="panel-heading">
-                        Gane Stats
+                        Game statestieken
                     </div>
                     <div class="panel-body">
                         {#if loginPostfix}

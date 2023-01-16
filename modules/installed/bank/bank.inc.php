@@ -25,38 +25,38 @@
         public function method_transfer() {
 
             if (!isset($this->methodData->user)) {
-                return $this->error("This user does not exist");
+                return $this->error("Deze gebruiker bestaat niet!");
             }
 
             if (!isset($this->methodData->money)) {
-                return $this->error("How much money do you want to send?");
+                return $this->error("Hoeveel geld wil je versturen?");
             }
 
             $user = new User(null, $this->methodData->user);
 
             if (!isset($user->info->U_id)) {
-                return $this->error("This user does not exist");
+                return $this->error("Deze gebruiker bestaat niet!");
             }
 
             if ($user->info->U_id == $this->user->id) {
-                return $this->error("You can't send money to yourself!");
+                return $this->error("Je kan geen geld naar jezelf versturen!");
             }
 
             $money = abs(intval($this->methodData->money));
 
             if (!$money) {
-                return $this->error("How much money do you want to send?");
+                return $this->error("Hoeveel geld wil je versturen?");
             }
             
             if ($money > $this->user->info->US_money) {
-                return $this->error("You dont have that much money");
+                return $this->error("Je hebt niet zoveel geld!");
             }
 
             $this->user->set("US_money", $this->user->info->US_money - $money);
             $user->set("US_money", $user->info->US_money + $money);
-            $user->newNotification(htmlentities($this->user->info->U_name) . " has sent you " . $this->money($money));
+            $user->newNotification(htmlentities($this->user->info->U_name) . " heeft een bedrag overgemaakt. Het bedrag bedraagt: " . $this->money($money));
 
-            $this->error("You have sent " . $this->money($money) . " to " . htmlentities($user->info->U_name), "success");
+            $this->error("Je hebt " . $this->money($money) . " verzonden naar" . htmlentities($user->info->U_name), "success");
 
             $actionHook = new hook("userAction");
             $action = array(
@@ -77,10 +77,10 @@
                 $money = abs(intval(str_replace(array(',', '$'), array('', ''), $this->methodData->withdraw)));
                 
                 if ($money < 0) {                
-                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"You cant withdraw negative cash"));
+                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"Je kan geen negatief bedrag opnemen!"));
                 } else if ($this->user->info->US_bank < $money) {
                     
-                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"You dont have enough money in your bank for this transaction!"));
+                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"Je hebt niet genoeg geld op je bank staan!"));
                     
                 } else {
                     
@@ -90,7 +90,7 @@
                     $update->bindParam(":id", $this->user->info->US_id);
                     $update->execute();
                     
-                    $this->alerts[] = $this->page->buildElement("success", array("text"=>"You have withdrawn ".$this->money($money)."!"));
+                    $this->alerts[] = $this->page->buildElement("success", array("text"=>"Je hebt een bedrag van ".$this->money($money)." opgenomen!"));
                     
                     $this->user->info->US_money += $money;
                     $this->user->info->US_bank -= $money;
@@ -112,10 +112,10 @@
                 $money = abs(intval(str_replace(array(',', '$'), array('', ''), $this->methodData->deposit)));
                 
                 if ($money < 0) {                
-                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"You cant deposit negative cash"));
+                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"Je kan geen negatief bedrag storten!"));
                 } else if ($this->user->info->US_money < $money) {
                     
-                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"You dont have enough money for this transaction!"));
+                    $this->alerts[] = $this->page->buildElement("error", array("text"=>"Je hebt niet genoeg contant geld voor deze transactie!"));
                     
                 } else {
 
@@ -129,7 +129,7 @@
                     $update->bindParam(":id", $this->user->info->US_id);
                     $update->execute();
                     
-                    $this->alerts[] = $this->page->buildElement("success", array("text"=>"You sent ".$this->money($money)." to your money launder, he in return deposits ".$this->money($bank)." into your bank account!"));
+                    $this->alerts[] = $this->page->buildElement("success", array("text"=>"Je hebt een bedrag van ".$this->money($money)." verstuurd naar je witwasser, hij heeft in ruil hiervoor een bedrag van ".$this->money($bank)." overgemaakt op je bankrekening!"));
                     
                     $this->user->info->US_bank += $bank;
                     $this->user->info->US_money -= $money;

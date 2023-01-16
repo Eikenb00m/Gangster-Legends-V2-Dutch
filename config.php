@@ -11,4 +11,4 @@
         "pass" => "" //database wachtwoord
     );
 
-?>
+?>test

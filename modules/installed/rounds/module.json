@@ -6,32 +6,32 @@
         "name": "Chris Day",
         "url": "https:\/\/glscript.net"
     },
-    "pageName": "Rounds",
+    "pageName": "Rondes",
     "moduleCantBeDisabled": false,
     "accessInJail": false,
     "requireLogin": false,
     "adminGroup": "Rounds",
     "admin": [
         {
-            "text": "View Rounds",
+            "text": "Bekijk rondes",
             "method": "view"
         },
         {
-            "text": "New Rounds",
+            "text": "Nieuwe rondes",
             "method": "new"
         },
         {
             "hide": true,
-            "text": "Edit Rounds",
+            "text": "Bewerk rondes",
             "method": "edit"
         },
         {
             "hide": true,
-            "text": "Delete Rounds",
+            "text": "Verwijder rondes",
             "method": "delete"
         },
         {
-            "text": "Clear Round Data",
+            "text": "Verwijder ronde data",
             "method": "clear"
         }
     ]

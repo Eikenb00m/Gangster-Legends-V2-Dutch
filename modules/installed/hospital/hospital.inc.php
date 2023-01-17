@@ -60,7 +60,7 @@
                 $time = $this->user->getTimer('hospital');
                 $crimeError = array(
                     "timer" => "hospital",
-                    "text"=>'You are recovering in hospital!',
+                    "text"=>'Je bent momenteel onderbehandeling in het ziekenhuis!',
                     "time" => $this->user->getTimer("hospital")
                 );
 
@@ -76,11 +76,11 @@
             $info = $this->getHospitalInfo();
             
             if (!$info["health"]) {
-                return $this->error("You are full health!");
+                return $this->error("Je bent volledig gezond!");
             }
 
             if ($info["money"] > $this->user->info->US_money) {
-                return $this->error("You can't afford this!");
+                return $this->error("Je kunt dit niet betalen!");
             }
 
             $this->user->set("US_money", $this->user->info->US_money - $info["money"]);

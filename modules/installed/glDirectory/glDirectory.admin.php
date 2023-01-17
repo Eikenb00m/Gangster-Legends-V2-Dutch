@@ -19,7 +19,7 @@
                 }
 
                 $this->html .= $this->page->buildElement("success", array(
-                    "text" => "Options updated."
+                    "text" => "Opties updated."
                 ));
             }
 

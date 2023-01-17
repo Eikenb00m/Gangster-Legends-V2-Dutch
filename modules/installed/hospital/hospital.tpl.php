@@ -9,20 +9,20 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Time untill 100% health (seconds)</label>
+                            <label class="pull-left">Tijd tot 100% gezondheid (in seconden)</label>
                             <input type="number" class="form-control" name="hospitalTimeUntillFull" value="{hospitalTimeUntillFull}" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Cost to get 100% health ($)</label>
+                            <label class="pull-left">Kosten voor 100% gezondheid (&euro;)</label>
                             <input type="number" class="form-control" name="hospitalmoneyUntillFull" value="{hospitalmoneyUntillFull}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="text-right">
-                    <button class="btn btn-default" name="submit" type="submit" value="1">Save</button>
+                    <button class="btn btn-default" name="submit" type="submit" value="1">Opslaan</button>
                 </div>
 
             </form>
@@ -33,27 +33,27 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">{location} hospital admissions</div>
+                        <div class="panel-heading">{location} ziekenhuis opname</div>
                         <div class="panel-body">
 
                             {#unless health}
-                                You are healthy, you dont need to check in to A&E!
+                                Je bent volledig gezond!
                             {/unless}
 
                             {#if health}
 
                                 <p>
-                                    You currently have {healthPerc}% health!
+                                    Je hebt momenteel {healthPerc}% gezondheid!
                                 </p>
                                 <p>
-                                    To heal it will take {time} 
+                                    De behandeling duurt {time} 
                                     {#if money}
-                                        and cost {#money money}
+                                        en kost {#money money}
                                     {/if}!
                                 </p>
                                 <p>
                                     <a href="?page=hospital&action=checkin" class="btn btn-default">
-                                        Check In
+                                        Laat je behandelen
                                     </a>
                                 </p>
                             {/if}
@@ -63,12 +63,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Patients</div>
+                        <div class="panel-heading">Patiënten</div>
                         <div class="panel-body">
                             <ul class="list-group text-left">
                                 {#unless users} 
                                     <div class="text-center">
-                                        <em>There is no one in hoispital</em>
+                                        <em>Er is niemand in het ziekenhuis</em>
                                     </div>
                                 {/unless}
                                 {#each users} 
@@ -91,12 +91,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Patients</div>
+                        <div class="panel-heading">Patiënten</div>
                         <div class="panel-body">
                             <ul class="list-group text-left">
                                 {#unless users} 
                                     <div class="text-center">
-                                        <em>There is no one in hoispital</em>
+                                        <em>Er is niemand in het ziekenhuis</em>
                                     </div>
                                 {/unless}
                                 {#each users} 

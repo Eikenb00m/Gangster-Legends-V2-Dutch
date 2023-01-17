@@ -26,7 +26,7 @@
     	global $page;
         if ($user) return array(
             "url" => "?page=hospital", 
-            "text" => "Hospital", 
+            "text" => "Ziekenhuis", 
             "timer" => $user->getTimer("hospital"),
             "templateTimer" => "hospital_timer",
             "sort" => 10

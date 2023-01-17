@@ -88,7 +88,7 @@
 
         if ($savedHash != $currentHash) return array( 
             "type" => "warning", 
-            "text" => "The Gangster Legends core code has been altered, this can potentially break future upgrades!"
+            "text" => "De Gangster Legends core code is aangepast, dit kan mogelijk updates breken in de toekomst!"
         );
         return false;
     });

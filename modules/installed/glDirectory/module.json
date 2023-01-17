@@ -1,12 +1,12 @@
 {
     "name": "GL Directory",
     "version": "1.0.0",
-    "description": "This module allows users to vote for your site on the GL Directory",
+    "description": "Deze module laat je gebruikers stemmen op de GL Directory",
     "author": {
         "name": "Chris Day",
         "url": "https:\/\/glscript.net"
     },
-    "pageName": "GL Directory",
+    "pageName": "Stemmen",
     "moduleCantBeDisabled": false,
     "accessInJail": false,
     "requireLogin": true,

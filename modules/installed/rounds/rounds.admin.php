@@ -44,14 +44,14 @@
             $errors = array();
 
             if (strlen($rounds["name"]) < 1) {
-                $errors[] = "Round name is to short, this must be atleast 1 characters";
+                $errors[] = "De Ronde naam is te kort, dit moet minimaal 1 teken zijn!";
             }
             if (strtotime($rounds["end"]) < strtotime($rounds["start"])) {
-                $errors[] = "The start time of the round must before the end time";
+                $errors[] = "De Start tijd van de ronde moet voor de eind tijd zijn!";
             }
             
             if (!intval($rounds["start"])) {
-                $errors[] = "No chance specified";
+                $errors[] = "Geen tijden ingesteld!";
             }
 
             return $errors;
@@ -65,7 +65,7 @@
         		$hook = new Hook("clearRound");
         		$hook->run();
 
-        		$this->page->alert("Round data cleared!", "warning");
+        		$this->page->alert("Ronde data is verwijderd!", "warning");
         	} else {
         		$this->html .= $this->page->buildElement("clearData");
         	}
@@ -94,7 +94,7 @@
                         ":end" => strtotime($this->methodData->end)
                     ));
 
-                    $this->page->alert("This round has been created", "success");
+                    $this->page->alert("Ronde is gemaakt!", "success");
 
                 }
 
@@ -107,7 +107,7 @@
         public function method_edit () {
 
             if (!isset($this->methodData->id)) {
-                return $this->page->alert("No round ID specified");
+                return $this->page->alert("Geen ronde id gevonden");
             }
 
             $rounds = $this->getRounds($this->methodData->id);
@@ -132,7 +132,7 @@
                         ":id" => $this->methodData->id
                     ));
 
-                    $this->page->alert("This round has been updated");
+                    $this->page->alert("Deze ronde is bijgewerkt!");
 
                 }
 
@@ -145,13 +145,13 @@
         public function method_delete () {
 
             if (!isset($this->methodData->id)) {
-                return $this->page->alert("No round ID specified");
+                return $this->page->alert("Geen ronde ID gevonden");
             }
 
             $rounds = $this->getRounds($this->methodData->id);
 
             if (!isset($rounds["id"])) {
-                return $this->page->alert("This round does not exist");
+                return $this->page->alert("Deze ronde bestaat niet!");
             }
 
             if (isset($this->methodData->commit)) {

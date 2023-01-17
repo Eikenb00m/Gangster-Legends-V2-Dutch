@@ -21,7 +21,7 @@ new hook("moduleLoad", function ($module) {
 			return "login";
 		} else {
 			if ($module != "admin") {
-				$page->alert("The current game round is over!", "info");
+				$page->alert("De huidige ronde is afgelopen!!", "info");
 			}
 		}
 	}

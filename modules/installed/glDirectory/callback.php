@@ -43,7 +43,7 @@
 				$money = mt_rand($settings->loadSetting("voteMin"), $settings->loadSetting("voteMax"));
 				$user->set("US_money", $user->info->US_money + $money);
 				$user->newNotification(
-					"Thank you for voting, as a thank you you have received $" . number_format($money)
+					"Bedankt voor het stemmen, als bedankje heb je een bedrag ontvangen terwaarde van &euro;" . number_format($money)
 				);
 				$user->updateTimer('glDirVote', strtotime("midnight")+86400);
 			}

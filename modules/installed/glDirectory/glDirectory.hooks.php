@@ -11,7 +11,7 @@
     new hook("actionMenu", function ($user) {
         if ($user) return array(
             "url" => "?page=glDirectory", 
-            "text" => "Vote for " . _setting("game_name"), 
+            "text" => "Stem voor " . _setting("game_name"), 
             "sort" => 1000
         );
     });
@@ -21,7 +21,9 @@
         $key = _setting("voteKey1");
         if (!$key) return array( 
             "type" => "info", 
-            "text" => 'To set up your game in the Gangster Legends game directory please register your site <a href="https://directory.glscript.net/" target="_blank">here</a> once you have registered you can set up the setting <a href="?page=admin&module=glDirectory">here</a>. <br />If you do not want to be listed in the director you can remove this module <a href="?page=admin&module=moduleManager&action=deactivate&moduleName=glDirectory">here</a>.'
+            "text" => 'Om je game aan te melden in de Gangster Legends Toplijsten kun je site <a href="https://directory.glscript.net/" target="_blank">hier</a> registreren. <br />
+            Als je geregistreerd bent, kan je <a href="?page=admin&module=glDirectory">hier je instellingen aanpassen.</a><br />
+            Wanneer je niet in de toplijst geregistreerd wilt zijn, kun je deze module uitschakelen en/of verwijderen.'
         );
         return false;
     });

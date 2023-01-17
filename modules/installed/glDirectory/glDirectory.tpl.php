@@ -13,15 +13,15 @@ class glDirectoryTemplate extends template {
 	public $glDirectory = '
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Vote for {_setting "game_name"}
+				Stem voor {_setting "game_name"}
 			</div>
 			<div class="panel-body">
 				<p>
-					By voting for {_setting "game_name"} you will receive a reward!
+					Door te stemmen op {_setting "game_name"} ontvang je een beloning!
 				</p>
 				<p>
 					<a href="{voteUrl}/record/{key}/{id}" class="btn btn-default" target="_blank">
-						Vote for {_setting "game_name"}
+						Stem voor {_setting "game_name"}
 					</a>
 				</p>
 			</div>
@@ -35,7 +35,7 @@ class glDirectoryTemplate extends template {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="pull-left">Validation Key (setup only)</label>
+                            <label class="pull-left">Validatie sleutel (alleen installatie)</label>
                             <input type="text" class="form-control" name="validation" value="{validation}" />
                         </div>
                     </div>
@@ -43,7 +43,7 @@ class glDirectoryTemplate extends template {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="pull-left">Directory URL</label>
+                            <label class="pull-left">Toplist URL</label>
                             <input type="text" class="form-control" name="voteUrl" value="{voteUrl}" placeholder="https://glscript.net/directory/1-your-game/" />
                         </div>
                     </div>
@@ -67,20 +67,20 @@ class glDirectoryTemplate extends template {
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Min. Money reward</label>
+                            <label class="pull-left">Min. Geld beloning</label>
                             <input type="text" class="form-control" name="voteMin" value="{voteMin}" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Max. Money reward</label>
+                            <label class="pull-left">Max. Geld beloning</label>
                             <input type="text" class="form-control" name="voteMax" value="{voteMax}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="text-right">
-                    <button class="btn btn-default" name="submit" type="submit" value="1">Save</button>
+                    <button class="btn btn-default" name="submit" type="submit" value="1">Opslaan</button>
                 </div>
 
             </form>

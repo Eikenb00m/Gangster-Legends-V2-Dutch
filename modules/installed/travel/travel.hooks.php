@@ -16,14 +16,14 @@
             "sort" => 1000, 
             "timer" => $user->getTimer("travel"),
             "templateTimer" => "travel_timer",
-            "text" => "Travel"
+            "text" => "Reizen"
         );
     });
 
     new Hook("membershipBenefit", function () {
         return array(
-            "title" => "Frequent Flyer Discount", 
-            "description" => "All travel costs are reduced by 75%"
+            "title" => "Reis Kortingen", 
+            "description" => "Ontvang op alle bestemmingen 75% korting!"
         );
     });
 

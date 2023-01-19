@@ -1,32 +1,32 @@
 {
     "name": "Travel",
     "version": "1.0.0",
-    "description": "",
+    "description": "Maakt het mogelijk om spelers te laten reizen.",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"
     },
-    "pageName": "Travel",
+    "pageName": "Reizen",
     "accessInJail": false,
     "requireLogin": true,
     "adminGroup": "Game Mechanics",
     "admin": [
         {
-            "text": "View Locations",
+            "text": "Bekijk bestemmingen",
             "method": "view"
         },
         {
-            "text": "New Locations",
+            "text": "Nieuwe bestemming",
             "method": "new"
         },
         {
             "hide": true,
-            "text": "Edit Locations",
+            "text": "Bewerk bestemming",
             "method": "edit"
         },
         {
             "hide": true,
-            "text": "Delete Locations",
+            "text": "Verwijder bestemming",
             "method": "delete"
         }
     ]

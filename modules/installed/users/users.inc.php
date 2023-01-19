@@ -21,7 +21,7 @@
                     header("Location: ?page=" . $settings->loadSetting("landingPage"));
                 } else {
                     $this->html .= $this->page->buildElement("error", array(
-                        "text" => "Invalid code"
+                        "text" => "Ongeldige Code"
                     ));
                 }
             }
@@ -38,7 +38,7 @@
                 $this->user->info->U_name
             );
             $this->html .= $this->page->buildElement("success", array(
-                "text" => "Activation code resent"
+                "text" => "Activatie code opnieuw verzonden"
             ));
         }
 

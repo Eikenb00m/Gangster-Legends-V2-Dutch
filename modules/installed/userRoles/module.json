@@ -1,32 +1,32 @@
 {
     "name": "User Roles",
     "version": "1.0.0",
-    "description": "This module allows a admin to edit users",
+    "description": "Deze module laat admins gebruikers aanpassen",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"
     },
-    "pageName": "User Roles",
+    "pageName": "Gebruikers rollen",
     "accessInJail": false,
     "requireLogin": true,
     "adminGroup": "User Management",
     "admin": [
         {
-            "text": "User Roles",
+            "text": "Gebruikers rollen",
             "method": "view"
         },
         {
-            "text": "New User Role",
+            "text": "Nieuwe gebruikers rol",
             "method": "new"
         },
         {
             "hide": true,
-            "text": "Edit User Role",
+            "text": "Bewerk gebruikers rol",
             "method": "edit"
         },
         {
             "hide": true,
-            "text": "Delete User Role",
+            "text": "Verwijder gebruikers rol",
             "method": "delete"
         }
     ]

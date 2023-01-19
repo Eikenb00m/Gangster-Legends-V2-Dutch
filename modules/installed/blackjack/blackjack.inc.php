@@ -8,21 +8,21 @@ class Deck {
     public function __construct($exclude = array()) {
         $deck = array();
 
-        $suits = array("C" => "clubs", "D" => "diamonds", "S" => "spades", "H" => "hearts");
+        $suits = array("C" => "klaveren", "D" => "ruiten", "S" => "schoppen", "H" => "harten");
         $cards = array(
-            "ace" => "A", 
-            "two" => 2, 
-            "three" => 3, 
-            "four" => 4, 
-            "five" => 5, 
-            "six" => 6, 
-            "seven" => 7, 
-            "eight" => 8, 
-            "nine" => 9, 
-            "ten" => 10, 
-            "jack" => "J", 
-            "queen" => "Q", 
-            "king" => "K"
+            "aas (een)" => "A", 
+            "twee" => 2, 
+            "drie" => 3, 
+            "vier" => 4, 
+            "vijf" => 5, 
+            "zes" => 6, 
+            "zeven" => 7, 
+            "acht" => 8, 
+            "negen" => 9, 
+            "tien" => 10, 
+            "boer (valet)" => "J", 
+            "vrouw (dame)" => "Q", 
+            "heer (roi)" => "K"
         );
 
         foreach ($suits as $suitID => $suit) {
@@ -131,13 +131,13 @@ class blackjack extends module {
             $user = $this->page->buildElement("userName", $owner);
 
             return $this->html .= $this->page->buildElement("error", array(
-                "text" => "This property is owned by " . $user
+                "text" => "Dit object is eigendom van " . $user
             ));
         }
 
         if ($this->user->info->US_money < 1000000) {
             return $this->html .= $this->page->buildElement("error", array(
-                "text" => "You need $1,000,000 to buy of this property."
+                "text" => "Je hebt een bedrag van &euro;1.000.000 nodig om dit object te kopen."
             ));
         }
 
@@ -150,7 +150,7 @@ class blackjack extends module {
         $this->property->transfer($this->user->id);
 
         return $this->html .= $this->page->buildElement("success", array(
-            "text" => "You paid $1,000,000 to buy this property."
+            "text" => "Je hebt &euro; 1.000.000 betaald voor dit object."
         ));
 
     }
@@ -176,7 +176,7 @@ class blackjack extends module {
         $_SESSION["BJ_GAME"]["user"][] = $card;
 
         $this->html .= $this->page->buildElement("info",  array(
-            "text" => "The dealer draws you a " . $card["desc"]
+            "text" => "De dealer trekt de volgende kaart voor jou. Een " . $card["desc"]
         ));
 
     }
@@ -212,7 +212,7 @@ class blackjack extends module {
 
         if ($user == $dealer) {
             $this->html .= $this->page->buildElement("info", array(
-                "text" => "You drew, " . $this->money($game["bet"]) . " was returned"
+                "text" => "Je inzet, " . $this->money($game["bet"]) . " is terug gegeven"
             ));    
             $winnings = $game["bet"];
             $this->userWins($winnings);
@@ -220,14 +220,14 @@ class blackjack extends module {
             $game["gameOver"] = true;
         } else if ($user > $dealer) {
             $this->html .= $this->page->buildElement("success", array(
-                "text" => "The dealer went bust, you won " . $this->money($game["bet"])
+                "text" => "De dealer verliest, je hebt het volgende bedrag gewonnen " . $this->money($game["bet"])
             ));
             $winnings = ($game["bet"] * 2);
             $this->userWins($winnings);
             $game["gameOver"] = true;
         } else if ($user < $dealer) {
             $this->html .= $this->page->buildElement("error", array(
-                "text" => "The dealer won, you lost your bet of " . $this->money($game["bet"])
+                "text" => "De dealer wint, je verliest je inzet van " . $this->money($game["bet"])
             ));
 
             $game["gameOver"] = true;
@@ -247,12 +247,12 @@ class blackjack extends module {
         if ($score == 0) {
             $game["gameOver"] = true;
             $this->html .= $this->page->buildElement("error", array(
-                "text" => "You went bust and lost " . $this->money($game["bet"])
+                "text" => "Je bent verslagen en verliest " . $this->money($game["bet"])
             ));
         } else if ($score == 22) {
             $game["gameOver"] = true;
             $this->html .= $this->page->buildElement("success", array(
-                "text" => "You got blackjack and won " . $this->money($game["bet"] * 1.5)
+                "text" => "Je hebt blackjack en wint " . $this->money($game["bet"] * 1.5)
             ));
             $winnings = ($game["bet"] * 2.5);
             $this->userWins($winnings);
@@ -281,15 +281,15 @@ class blackjack extends module {
 
             if ($bet > $this->user->info->US_money) {
                 $this->html .= $this->page->buildElement("error", array(
-                    "text" => "You dont have enough cash to cover this bet"
+                    "text" => "Je hebt niet genoeg geld!"
                 ));
             } else if ($bet < 100) {
                 $this->html .= $this->page->buildElement("error", array(
-                    "text" => "You must bet atleast $100"
+                    "text" => "Je moet minimaal &euro;100,- inzetten"
                 ));
             } else if ($bet > $this->maxBet) {
                 $this->html .= $this->page->buildElement("error", array(
-                    "text" => "The max bet is " . $this->money($this->maxBet)
+                    "text" => "De maximale inzet is " . $this->money($this->maxBet)
                 ));
             } else {
 
@@ -361,7 +361,7 @@ class blackjack extends module {
             if ($cash > $owner->info->US_money) {
                 $this->property->transfer($this->user->id);
                 $this->html .= $this->page->buildElement("warning", array(
-                    "text" => "The owner did not have enough cash to pay the bet, you took ownership of the casino."
+                    "text" => "De eigenaar heeft niet genoeg geld contact, je hebt hierdoor het object gewonnen."
                 ));
 
                 $actionHook = new hook("userAction");

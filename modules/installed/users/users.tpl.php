@@ -5,20 +5,20 @@
         public $validateAccount = '
 
             <div class="panel panel-default">
-                <div class="panel-heading">Account Activation</div>
+                <div class="panel-heading">Account Activeren</div>
                 <div class="panel-body">
                     <div class="text-center">
                         <p class="text-center">
-                            Before you can play you need to activate your account. Please check your email for your validation code. This may be in your spam folder.
+                            Voor dat je kan spelen moet je een geactiveerd account hebben. We hebben je een email gestuurd met de activatie code. Deze kan in de spambox/ongewenst zijn gekomen.    
                         </p>
                         <form method="post" action="?page=users">
                             <input type="text" name="code" class="form-control activation-code" value="{code}" /> 
                             <button type="submit" class="btn btn-default">
-                                Activate
+                                Activeer
                             </button>
                         </form>
                         <p>
-                            <a href="?page=users&action=resend">Resend activation code</a>
+                            <a href="?page=users&action=resend">Stuur een nieuwe activatie code</a>
                         </p>
                     </div>
                 </div>
@@ -28,14 +28,14 @@
         public $userHolder = '
         {#each users}
         <div class="user-holder">
-            <p>{name} ({cooldown}) <span class="commit"><a href="?page=users&action=commit&user={id}">Commit</a></span></p>
+            <p>{name} ({cooldown}) <span class="commit"><a href="?page=users&action=commit&user={id}">Verbind</a></span></p>
             <div class="user-perc">
                 <div class="perc" style="width:{percent}%;"></div>
             </div>
         </div>
         {/each}
         {#unless users}
-            <div class="text-center"><em>There are no users</em></div>
+            <div class="text-center"><em>Er zijn geen gebruikers</em></div>
         {/unless}';
 
         public $userList = '
@@ -45,14 +45,14 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label class="pull-left">Username, ID or Email</label>
+                            <label class="pull-left">Gebruikersnaam, ID of Email</label>
                             <input type="text" class="form-control" name="user" value="{user}">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label class="pull-left col-md-12">&nbsp;</label>
                         <button class="btn btn-default" type="submit">
-                            Search for users
+                           Zoek gebruikers
                         </button>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                     <tr>
                         <th width="50px">ID</th>
                         <th>User</th>
-                        <th width="150px">Round</th>
-                        <th width="100px">Actions</th>
+                        <th width="150px">Ronde</th>
+                        <th width="100px">Opties</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,8 +82,8 @@
                                 {/if}
                             </td>
                             <td>
-                                [<a href="?page=admin&module=users&action=edit&id={id}">Edit</a>] 
-                                [<a href="?page=admin&module=users&action=delete&id={id}">Delete</a>]
+                                [<a href="?page=admin&module=users&action=edit&id={id}">Bewerk</a>] 
+                                [<a href="?page=admin&module=users&action=delete&id={id}">Verwijder</a>]
                             </td>
                         </tr>
                     {/each}
@@ -94,11 +94,11 @@
         public $userDelete = '
             <form method="post" action="?page=admin&module=users&action=delete&id={id}&commit=1">
                 <div class="text-center">
-                    <p> Are you sure you want to delete this user?</p>
+                    <p> Weet je zeker dat je deze gebruiker wilt verwijderen?</p>
 
                     <p><em>"{name}"</em></p>
 
-                    <button class="btn btn-danger" name="submit" type="submit" value="1">Yes delete this user</button>
+                    <button class="btn btn-danger" name="submit" type="submit" value="1">Ja verwijder deze gebruiker!</button>
 
                 </div>
             </form>
@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="pull-left">User Name</label>
+                            <label class="pull-left">Gebruikersnaam</label>
                             <input type="text" class="form-control" name="name" value="{name}">
                         </div>
                     </div>
@@ -117,15 +117,15 @@
                         <div class="form-group">
                             <label class="pull-left">User Status</label>
                             <select class="form-control" name="userStatus" data-value="{userStatus}">
-                                <option {#if isDead}selected{/if} value="0">Dead</option>
-                                <option {#if isValidated}selected{/if} value="1">Alive</option>
-                                <option {#if isAwaitingValidation}selected{/if} value="2">Awaiting Email Verification</option>
+                                <option {#if isDead}selected{/if} value="0">Dood</option>
+                                <option {#if isValidated}selected{/if} value="1">Levend</option>
+                                <option {#if isAwaitingValidation}selected{/if} value="2">Wacht op activatie</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="pull-left">User Level</label>
+                            <label class="pull-left">Gebruikers level</label>
                             <select class="form-control" name="userLevel" data-value="{userLevel}">
                                 {#each userRoles}
                                     <option value="{id}">{name}</option>
@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Cash</label>
+                            <label class="pull-left">Contant</label>
                             <input type="number" class="form-control" name="money" value="{money}">
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Points</label>
+                            <label class="pull-left">Punten</label>
                             <input type="number" class="form-control" name="points" value="{points}">
                         </div>
                     </div>
@@ -173,13 +173,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Bullets</label>
+                            <label class="pull-left">Kogels</label>
                             <input type="text" class="form-control" name="bullets" value="{bullets}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="pull-left">Profile Picture</label>
+                            <label class="pull-left">Profiel afbeelding</label>
                             <input type="text" class="form-control" name="pic" value="{pic}">
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                     <textarea rows="8" class="form-control" name="bio">{bio}</textarea>
                 </div>
                 <div class="text-right">
-                    <button class="btn btn-default" name="submit" type="submit" value="1">Save</button>
+                    <button class="btn btn-default" name="submit" type="submit" value="1">Opslaan</button>
                 </div>
             </form>
         ';

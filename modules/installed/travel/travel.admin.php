@@ -33,12 +33,12 @@
             $errors = array();
 
             if (strlen($locations["name"]) < 3) {
-                $errors[] = "Location name is to short, this must be at least 5 characters";
+                $errors[] = "Bestemmings naam is te kort, deze moet minimaal uit 3 tekens bestaan.";
             }
             
             
             if (!intval($locations["cost"])) {
-                $errors[] = "No cost specified";
+                $errors[] = "Er zijn geen kosten ingevuld.";
             }
 
             return $errors;
@@ -68,7 +68,7 @@
                         ":cooldown" => $this->methodData->cooldown
                     ));
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This location has been created"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "De bestemming is aangemaakt"));
 
                 }
 
@@ -81,7 +81,7 @@
         public function method_edit () {
 
             if (!isset($this->methodData->id)) {
-                return $this->html = $this->page->buildElement("error", array("text" => "No location ID specified"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Geen bestemmings ID gevonden"));
             }
 
             $locations = $this->getLocations($this->methodData->id);
@@ -106,7 +106,7 @@
                         ":id" => $this->methodData->id
                     ));
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This location has been updated"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "De bestemming is bijgewerkt"));
 
                 }
 
@@ -119,13 +119,13 @@
         public function method_delete () {
 
             if (!isset($this->methodData->id)) {
-                return $this->html = $this->page->buildElement("error", array("text" => "No location ID specified"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Geen bestemmings ID gevonden"));
             }
 
             $locations = $this->getLocations($this->methodData->id);
 
             if (!isset($locations["id"])) {
-                return $this->html = $this->page->buildElement("error", array("text" => "This location does not exist"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Deze bestemming bestaat niet"));
             }
 
             if (isset($this->methodData->commit)) {

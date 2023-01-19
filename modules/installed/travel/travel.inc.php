@@ -4,7 +4,7 @@
         
         public $allowedMethods = array('location'=>array('type'=>'get'));
         
-        public $pageName = 'Airport';
+        public $pageName = 'Reizen';
         
         public function constructModule() {
 
@@ -13,7 +13,7 @@
                 $time = ($this->user->getTimer('travel'));
                 $this->html .= $this->page->buildElement('timer', array(
                     "timer" => "travel",
-                    "text" => 'You cant travel yet!',
+                    "text" => 'Je kunt nog niet reizen!',
                     "time" => $this->user->getTimer("travel")
                 ));
                 
@@ -65,17 +65,17 @@
             $location = $hook->run($hookData, 1)["data"];
            
             if (!$location){ 
-                return $this->error("This location does not exist!");
+                return $this->error("De bestemming bestaat niet!");
             }
 
             if ($this->user->checkTimer('travel')) {
                 if ($location["L_id"] == $this->user->info->US_location) {
                     
-                    $this->alerts[] = $this->page->buildElement('error', array("text" => 'You are already in '.$location["L_name"].'!'));
+                    $this->alerts[] = $this->page->buildElement('error', array("text" => 'Je bent al in '.$location["L_name"].'!'));
                     
                 } else if ($this->user->info->US_money < $location["L_cost"]) {
                 
-                    $this->alerts[] = $this->page->buildElement('error', array("text" => 'You cant afford to travel here!'));
+                    $this->alerts[] = $this->page->buildElement('error', array("text" => 'Je kan deze reis niet betalen!'));
                     
                 } else {
 
@@ -94,7 +94,7 @@
                     );
                     $actionHook->run($action);
                     
-                    $this->alerts[] = $this->page->buildElement('success', array("text" => 'You traveled to '.$location["L_name"].' for '.$this->money($location["L_cost"]).'!'));
+                    $this->alerts[] = $this->page->buildElement('success', array("text" => 'Je bent afgereisd naar '.$location["L_name"].' voor een bedrag van '.$this->money($location["L_cost"]).'!'));
                     
                 }
             } 

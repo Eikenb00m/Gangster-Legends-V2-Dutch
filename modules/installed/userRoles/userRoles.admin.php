@@ -54,7 +54,7 @@
             $errors = array();
 
             if (strlen($user["name"]) < 3) {
-                $errors[] = "User role name is to short, this must be atleast 3 characters";
+                $errors[] = "De naam van de gebruikers rol is te kort! Gebruik minimaal 3 tekens!";
             }
 
             return $errors;
@@ -93,7 +93,7 @@
                     $this->updateAccess($id);
 
                     $this->html .= $this->page->buildElement("success", array(
-                        "text" => "This user role has been added"
+                        "text" => "De gebruikers rol is toegevoegd"
                     ));
 
                 }
@@ -118,7 +118,7 @@
 
             if (!isset($this->methodData->id)) {
                 return $this->html = $this->page->buildElement("error", array(
-                    "text" => "No user role ID specified"
+                    "text" => "Geen gebruikers rol id gevonden."
                 ));
             }
 
@@ -153,7 +153,7 @@
                     $this->updateAccess($this->methodData->id);
 
                     $this->html .= $this->page->buildElement("success", array(
-                        "text" => "This user role has been updated"
+                        "text" => "De gebruikers rol is bijgewerkt"
                     ));
 
                 }
@@ -184,7 +184,7 @@
 
             if (!isset($this->methodData->id)) {
                 return $this->html = $this->page->buildElement("error", array(
-                    "text" => "No user role ID specified"
+                    "text" => "Geen id gevonden."
                 ));
             }
 
@@ -192,13 +192,13 @@
 
             if (!isset($user["id"])) {
                 return $this->html = $this->page->buildElement("error", array(
-                    "text" => "This user does not exist"
+                    "text" => "Deze gebruiker bestaat niet"
                 ));
             }
 
             if ($user["id"] == 1 || $user["id"] == 2 || $user["id"] == 3) {
                 return $this->html = $this->page->buildElement("error", array(
-                    "text" => "You can not delete this role"
+                    "text" => "Je kan deze rol niet verwijderen"
                 ));
             }
 

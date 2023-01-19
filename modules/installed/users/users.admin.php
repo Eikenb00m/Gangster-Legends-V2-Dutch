@@ -53,11 +53,11 @@
             $errors = array();
 
             if (strlen($user["name"]) < 2) {
-                $errors[] = "User name is to short, this must be atleast 2 characters";
+                $errors[] = "De gebruikersnaam is te kort, gebruik minimaal 2 tekens!";
             }
 
             if ($user["id"] == 1 && $user["userLevel"] != 2) {
-                $errors[] = "User ID 1 must be an admin";
+                $errors[] = "Gebruikers ID 1 is altijd een Admin!";
             }
 
             return $errors;
@@ -67,7 +67,7 @@
         public function method_edit () {
 
             if (!isset($this->methodData->id)) {
-                return $this->html = $this->page->buildElement("error", array("text" => "No user ID specified"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Geen gebruikers ID ingegeven."));
             }
 
             $user = $this->getUser($this->methodData->id);
@@ -133,7 +133,7 @@
                     ));
 
                     $this->html .= $this->page->buildElement("success", array(
-                        "text" => "This user has been updated"
+                        "text" => "Deze gebruiker is bijgewerkt."
                     ));
 
                 }
@@ -154,13 +154,13 @@
         public function method_delete() {
 
             if (!isset($this->methodData->id)) {
-                return $this->html = $this->page->buildElement("error", array("text" => "No user ID specified"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Geen gebruikers ID ingevoerd"));
             }
 
             $user = $this->getUser($this->methodData->id);
 
             if (!isset($user["id"])) {
-                return $this->html = $this->page->buildElement("error", array("text" => "This user does not exist"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Deze gebruiker bestaat niet"));
             }
 
             if (isset($this->methodData->commit)) {

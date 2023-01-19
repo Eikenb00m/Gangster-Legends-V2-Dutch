@@ -4,7 +4,7 @@
         
         public $allowedMethods = array();
         
-        public $pageName = 'Users Online';
+        public $pageName = 'Spelers online';
         
         public function constructModule() {
             

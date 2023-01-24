@@ -26,14 +26,14 @@
                 }
 
                 if (!isset($profile->info->US_id)) {
-                    return $this->error("This user does not exist");
+                    return $this->error("Deze gebruiker bestaat niet");
                 }
                 
-                $this->pageName = 'Viewing '.$profile->info->U_name.'\'s Profile';
+                $this->pageName = 'Bekijken '.$profile->info->U_name.'\'s Profiel';
                 $edit = false;
             } else {
                 $profile = $this->user;
-                $this->pageName = 'My Profile';
+                $this->pageName = 'Mijn profiel';
                 $edit = true;
             }
 
@@ -48,7 +48,7 @@
             if ($profile->info->US_shotBy) {
                 $killer = new User($profile->info->US_shotBy);
                 if (isset($killer->info->U_id)) {
-                    $killedBy = "killed by " . $this->page->username($killer);
+                    $killedBy = "Vermoord door " . $this->page->username($killer);
                 }
             }
 
@@ -85,7 +85,7 @@
             if (isset($this->methodData->user)) {
 
                 if (strlen($this->methodData->user) < 3) {
-                    $this->error("Please enter atleast 3 characters");
+                    $this->error("Voer minimaal 3 tekens in!");
                 } else {
                     
                     $users = $this->db->selectAll("
@@ -98,7 +98,7 @@
                         $user = new User($value["U_id"]);
                         $results[] = array(
                             "user" => $user->user, 
-                            "status" => $user->info->U_status == 0?"Dead":"Alive",
+                            "status" => $user->info->U_status == 0?"Dood":"Levend",
                         );
                     }
 
@@ -118,17 +118,17 @@
 
                 if (strlen($this->methodData->new) < 6) {
                     $this->alerts[] = $this->page->buildElement("error", array(
-                        "text" => "The password you entered is too short, it must be atleast 6 characters."
+                        "text" => "Het wachtwoord is te kort. Het wachtwoord moet minimaal uit 6 tekens bestaan!"
                     ));
                 } else if ($this->methodData->new != $this->methodData->confirm) {
                     $this->alerts[] = $this->page->buildElement("error", array(
-                        "text" => "The passwords you entered do not match"
+                        "text" => "Je wachtwoorden komen niet overeen"
                     ));
                 } else {
                     $encrypt = $this->user->encrypt($this->user->info->U_id . $this->methodData->old);
                     if ($encrypt != $this->user->info->U_password) {
                         $this->alerts[] = $this->page->buildElement("error", array(
-                            "text" => "The password you entered is incorrect"
+                            "text" => "Het ingevoerde wachtwoord klopt niet!"
                         ));
                     } else {
                         $new = $this->user->encrypt($this->user->info->U_id . $this->methodData->new);
@@ -140,7 +140,7 @@
                         $update->bindParam(":id", $this->user->info->US_id);
                         $update->execute();
                         $this->alerts[] = $this->page->buildElement("success", array(
-                            "text" => "Your password has been updated"
+                            "text" => "Je wachtwoord is bijgewerkt"
                         ));
                     }
                 }
@@ -154,12 +154,12 @@
             if (!empty($this->methodData->submit)) {
                 $this->user->set("US_bio", $this->methodData->bio);
                 $this->user->set("US_pic", $this->methodData->pic);
-                $this->error('Profile Updated, <a href="?page=profile">View</a>.', "success");
+                $this->error('Profiel bijgewerkt, <a href="?page=profile">Bekijk</a>.', "success");
             }
             
             $this->construct = false;
             
-            $this->pageName = 'Edit Profile';
+            $this->pageName = 'Bewerkt profiel';
         
             $this->html .= $this->page->buildElement("editProfile", array(
                 "bio" => $this->user->info->US_bio, 

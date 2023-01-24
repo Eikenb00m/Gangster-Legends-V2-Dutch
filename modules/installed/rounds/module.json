@@ -1,7 +1,7 @@
 {
-    "name": "Rounds",
+    "name": "Rondes",
     "version": "1.0.0.0",
-    "description": "This module allows admins to make rounds ",
+    "description": "Deze module maakt het mogelijk om rondes te maken",
     "author": {
         "name": "Chris Day",
         "url": "https:\/\/glscript.net"

@@ -4,7 +4,7 @@
     new hook("accountMenu", function () {
         return array(
             "url" => "?page=search", 
-            "text" => "Player Search", 
+            "text" => "Speler zoeken", 
             "sort" => 900
         );
     });

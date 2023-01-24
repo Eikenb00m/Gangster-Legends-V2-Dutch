@@ -18,7 +18,7 @@
                 ":killed" => $killed->info->U_id
             ));
 
-            $shooter->newNotification("You took over $properties properties after shooting " . $killed->info->U_name);
+            $shooter->newNotification("Je hebt de volgende bezittingen overgenomen: $properties door de moord op " . $killed->info->U_name);
 
         }
 

@@ -48,15 +48,15 @@
             
             if(preg_match("/^[a-zA-Z0-9]+$/", $this->methodData->username) != 1) {
                 $this->regError =  $this->page->buildElement('error', array(
-                    "text" => 'Please enter a valid username'
+                    "text" => 'Voer een geldige gebruikersnaam in!'
                 )); 
             } else if (!filter_var($this->methodData->email, FILTER_VALIDATE_EMAIL)) {
                 $this->regError =  $this->page->buildElement('error', array(
-                    "text" => 'Please enter a valid email address'
+                    "text" => 'Voer een geldig mail adres in!'
                 )); 
             } else if (strlen($this->methodData->username) < 3) {
                 $this->regError =  $this->page->buildElement('error', array(
-                    "text" => 'Your username should be atleast 3 characters long'
+                    "text" => 'Je gebruikersnaam moet minimaal uit 3 tekens bestaan!'
                 )); 
             } else if (
                 !empty($this->methodData->password) && ($this->methodData->password == $this->methodData->cpassword)
@@ -77,7 +77,7 @@
                     $actionHook = new hook("userAction");
                     $action = array(
                         "user" => $makeUser, 
-                        "module" => "register", 
+                        "module" => "registreren", 
                         "id" => $makeUser, 
                         "success" => true, 
                         "reward" => 0
@@ -89,16 +89,16 @@
                     if ($round->currentRound) {
                         header("Location:?");
                         $this->regError =  $this->page->buildElement('success', array(
-                            "text" => 'You have registered successfuly, you can now log in!'
+                            "text" => 'Je hebt succesvol een account geregistreerd, je kan nu inloggen.'
                         ));
                     } else {
-                        $this->error("You have pre-registered for the next round!", "success");
+                        $this->error("Je hebt je geregistreerd voor de volgende ronde!", "success");
                     }
                 }
                 
             } else if (isset($this->methodData->password)) {
                 $this->regError =  $this->page->buildElement('error', array(
-                    "text" => 'Your passwords do not match!'
+                    "text" => 'Je wachtwoorden komen niet overeen!'
                 ));    
             }
             

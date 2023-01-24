@@ -2,7 +2,7 @@
 
     class policeChase extends module {
         
-        public $pageName = 'Police Chase';
+        public $pageName = 'Politie achtervoling';
         public $allowedMethods = array('move'=>array('type'=>'get'));
         
         public function constructModule() {
@@ -11,7 +11,7 @@
                 $time = $this->user->getTimer('chase');
                 $crimeError = array(
                     "timer" => "chase",
-                    "text"=>'You cant attempt another police chase until your timer is up!',
+                    "text"=>'Je kan een nieuwe achtervolging proberen als je uitgerust bent. Dit duur nog:',
                     "time" =>$this->user->getTimer("chase")
                 );
                 $this->html .= $this->page->buildElement('timer', $crimeError);
@@ -45,7 +45,7 @@
                     
                     $this->user->updateTimer('chase', 300, true);
                     
-                    $this->alerts[] = $this->page->buildElement('success', array("text"=>'You got away, you were paid ' . $this->money($winnings).'!'));
+                    $this->alerts[] = $this->page->buildElement('success', array("text"=>'Het is gelukt, je hebt het volgend verdient: ' . $this->money($winnings).'!'));
 
                     $actionHook = new hook("userAction");
                     $action = array(
@@ -62,7 +62,7 @@
                     $this->user->updateTimer('jail', 150, true);
                     $this->user->updateTimer('chase', 300, true);
                     
-                    $this->alerts[] = $this->page->buildElement('error', array("text"=>'You crashed and was sent to jail!'));
+                    $this->alerts[] = $this->page->buildElement('error', array("text"=>'Je bent gecrasht en opgepakt!'));
 
                     $actionHook = new hook("userAction");
                     $action = array(
@@ -76,7 +76,7 @@
                     
                 } else {
                     
-                    $this->alerts[] = $this->page->buildElement('info', array("text"=>'You are still going, what direction do you want to go now?'));
+                    $this->alerts[] = $this->page->buildElement('info', array("text"=>'Je bent nog bezig met je achtervolging! Welke kant op?'));
                 
                 }
                 

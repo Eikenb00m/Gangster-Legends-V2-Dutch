@@ -3,7 +3,7 @@
     new hook("accountMenu", function () {
         return array(
             "url" => "?page=profile", 
-            "text" => "My Profile", 
+            "text" => "Mijn profiel", 
             "sort" => 900
         );
     });
@@ -12,7 +12,7 @@
     	if ($user->id == $profile->info->U_id) {
 	        return array(
 	            "url" => "?page=profile&action=edit", 
-	            "text" => "Edit Profile"
+	            "text" => "Bewerk profiel"
 	        );
     	}
     });

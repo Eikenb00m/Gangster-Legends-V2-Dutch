@@ -17,7 +17,7 @@
             if (isset($this->methodData->user)) {
 
                 if (strlen($this->methodData->user) < 2) {
-                    $this->error("Please enter atleast 2 characters");
+                    $this->error("Voer teminste 2 tekens in!");
                 } else {
                     
                     $users = $this->db->selectAll("
@@ -30,7 +30,7 @@
                         $user = new User($value["U_id"]);
                         $results[] = array(
                             "user" => $user->user, 
-                            "status" => $user->info->U_status == 0?"Dead":"Alive",
+                            "status" => $user->info->U_status == 0?"Dood":"Levend",
                         );
                     }
 

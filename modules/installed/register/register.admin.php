@@ -11,7 +11,7 @@
                 $settings->update("registerSuffix", $this->methodData->registerSuffix);
                 $settings->update("registerPostfix", $this->methodData->registerPostfix);
                 $this->html .= $this->page->buildElement("success", array(
-                    "text" => "Theme options updated."
+                    "text" => "Thema opties bijgewerkt."
                 ));
             }
 

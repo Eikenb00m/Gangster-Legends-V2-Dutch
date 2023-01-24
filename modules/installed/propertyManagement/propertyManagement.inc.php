@@ -14,7 +14,7 @@
         public function constructModule() {
             if (!isset($this->methodData->module)) {
                 return $this->html .= $this->page->buildElement("error", array(
-                    "text" => "What property do you want to manage"
+                    "text" => "Welke bezitting wil je beheren?"
                 ));
             }
 
@@ -24,7 +24,7 @@
 
             if ($info["user"]["id"] != $this->user->id) {
                 return $this->html .= $this->page->buildElement("error", array(
-                    "text" => "You do not own this property"
+                    "text" => "Je bent helemaal niet de eigenaar van deze bezitting!"
                 ));
             }
 
@@ -38,7 +38,7 @@
                 $this->property->updateProfit(0 - $info["_profit"]);
 
                 $this->alerts[] = $this->page->buildElement("success", array(
-                    "text" => "Profit / Loss reset to $0"
+                    "text" => "Winst / Verlies gereset naar 0"
                 ));
             }
         }
@@ -46,7 +46,7 @@
         public function method_dropDo() {
 
             if ($this->methodData->code != $_SESSION["DROP_CODE"]) {
-                return $this->error("You dont have access to do this");
+                return $this->error("Je hebt geen toegang om dit te doen!");
             }
 
             $this->property = new Property($this->user, $this->methodData->module);
@@ -73,7 +73,7 @@
                 );
                 $actionHook->run($action);
 
-                return $this->error("Property dropped!", "success");
+                return $this->error("Eigendom van de hand gedaan.", "success");
             }
 
         }
@@ -93,13 +93,13 @@
 
             if (!isset($this->methodData->cost)) {
                 return $this->html .= $this->page->buildElement("error", array(
-                    "text" => "Please provide a new Cost or Max Bet"
+                    "text" => "Geef nieuwe kosten of maximale inzet in!"
                 ));
             }
             
             if ($this->methodData->cost < 100) {
                 return $this->html .= $this->page->buildElement("error", array(
-                    "text" => "Cost or Max Bet must be at least $100"
+                    "text" => "De kosten of minimale inzet mogen niet lager zijn als &euro;100,-"
                 ));
             }
 
@@ -109,7 +109,7 @@
                 $cost = $this->methodData->cost;
                 $this->property->setCost($cost);
                 $this->alerts[] = $this->page->buildElement("success", array(
-                    "text" => "Cost or Max Bet set to " . $this->money($cost)
+                    "text" => "Kosten of maximale inzet bijgewerkt naar " . $this->money($cost)
                 ));
             }
         }
@@ -118,7 +118,7 @@
 
             if (!isset($this->methodData->transfer)) {
                 return $this->alerts[] = $this->page->buildElement("error", array(
-                    "text" => "Please provide a user to transfer this property to"
+                    "text" => "Voer een speler in om het bezit aan over te dragen"
                 ));
             }
 
@@ -126,13 +126,13 @@
 
             if (!isset($user->info->US_id)) {
                 return $this->alerts[] = $this->page->buildElement("error", array(
-                    "text" => "This user does not exist"
+                    "text" => "Deze speler bestaat niet"
                 ));
             }
 
             if ($user->info->U_status == 0) {
                 return $this->alerts[] = $this->page->buildElement("error", array(
-                    "text" => "This user is dead"
+                    "text" => "Deze speler is dood"
                 ));
             }
 
@@ -153,7 +153,7 @@
                 $actionHook->run($action);
 
                 $this->alerts[] = $this->page->buildElement("success", array(
-                    "text" => "Property transfered to " . $user->info->U_name
+                    "text" => "Bezitting doorgegeven aan " . $user->info->U_name
                 ));
             }
         }

@@ -1,18 +1,18 @@
 {
-    "name": "Register",
+    "name": "Registreren",
     "version": "1.0.0",
     "description": "",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"
     },
-    "pageName": "Register",
+    "pageName": "Registreren",
     "accessInJail": false,
     "requireLogin": false,
     "adminGroup": "Pages",
     "admin": [
         {
-            "text": "Page Settings",
+            "text": "Pagina instellingen",
             "method": "settings"
         }
     ]

@@ -9,20 +9,20 @@
         public $userSearch = '
 
             <div class="panel panel-default">
-                <div class="panel-heading">Find User</div>
+                <div class="panel-heading">Zoek speler</div>
                 <div class="panel-body">
                     <form method="post" action="#">
-                        <input type="text" name="user" class="form-control form-control-inline" placeholder="Username ..." />
-                        <button class="btn btn-primary">Search</button>
+                        <input type="text" name="user" class="form-control form-control-inline" placeholder="Gebruikersnaam" />
+                        <button class="btn btn-primary">Zoek</button>
                     </form>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Results</div>
+                <div class="panel-heading">Resultaten</div>
                 <div class="panel-body">
                     {#unless results}
-                        <em> No users found </em>
+                        <em> Geen spelers gevonden </em>
                     {/unless}
                     {#each results}
                         <div class="crime-holder"> 
@@ -42,18 +42,18 @@
 
 
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Password</div>
+                <div class="panel-heading">Wijzig wachtwoord</div>
                 <div class="panel-body">
 
                     <ul class="nav nav-tabs nav-justified">
-                        <li><a href="?page=profile&action=edit">Profile</a></li>
-                        <li class="active"><a href="?page=profile&action=password">Change Password</a></li>
+                        <li><a href="?page=profile&action=edit">Profiel</a></li>
+                        <li class="active"><a href="?page=profile&action=password">Wijzig wachtwoord</a></li>
                     </ul>
 
                     <form action="#" method="post">
                         <div class="row">
                             <div class="col-md-3 text-right">
-                                <strong>Old Password</strong>
+                                <strong>Oud wachtwoord</strong>
                             </div>
                             <div class="col-md-9">
                                 <input type="password" name="old" class="form-control" value="" placeholder="******" />
@@ -61,7 +61,7 @@
                         </div><br />
                         <div class="row">
                             <div class="col-md-3 text-right">
-                                <strong>New Password</strong>
+                                <strong>Nieuw wachtwoord</strong>
                             </div>
                             <div class="col-md-9">
                                 <input type="password" name="new" class="form-control" value="" placeholder="******" />
@@ -69,7 +69,7 @@
                         </div><br />
                         <div class="row">
                             <div class="col-md-3 text-right">
-                                <strong>Confirm Password</strong>
+                                <strong>Bevestig nieuw wachtwoord</strong>
                             </div>
                             <div class="col-md-9">
                                 <input type="password" name="confirm" class="form-control" value="" placeholder="******" />
@@ -77,7 +77,7 @@
                         </div><br />
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" name="submit" value="true" class="btn btn-default">Update</button>
+                                <button type="submit" name="submit" value="true" class="btn btn-default">Opslaan</button>
                             </div>
                         </div>
                     </form>
@@ -88,16 +88,16 @@
         public $editProfile = '
 
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Profile</div>
+                <div class="panel-heading">Bewerk profiel</div>
                 <div class="panel-body">
                     <ul class="nav nav-tabs nav-justified">
-                        <li class="active"><a href="?page=profile&action=edit">Profile</a></li>
-                        <li><a href="?page=profile&action=password">Change Password</a></li>
+                        <li class="active"><a href="?page=profile&action=edit">Profiel</a></li>
+                        <li><a href="?page=profile&action=password">Wijzig wachtwoord</a></li>
                     </ul>
                     <form action="#" method="post">
                         <div class="row">
                             <div class="col-md-3 text-right">
-                                <strong>Picture</strong>
+                                <strong>Afbeelding</strong>
                             </div>
                             <div class="col-md-9">
                                 <input type="text" name="pic" class="form-control" value="{picture}" placeholder="e.g. http://www.someurl.com/picture.png" />
@@ -105,15 +105,15 @@
                         </div><br />
                         <div class="row">
                             <div class="col-md-3 text-right">
-                                <strong>Bio</strong>
+                                <strong>Omschrijving</strong>
                             </div>
                             <div class="col-md-9">
-                                <textarea rows="15" name="bio" class="form-control" placeholder="A little bio about yourself ...">{bio}</textarea>
+                                <textarea rows="15" name="bio" class="form-control" placeholder="Een kleine omschrijving van jou....">{bio}</textarea>
                             </div>
                         </div><br />
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" name="submit" value="true" class="btn btn-default">Update</button>
+                                <button type="submit" name="submit" value="true" class="btn btn-default">Opslaan</button>
                             </div>
                         </div>
                     </form>
@@ -142,43 +142,43 @@
 
                             <ul class="list-group text-left profile-user-stats">
                                 <li class="list-group-item">
-                                    <strong>Username</strong>
+                                    <strong>Gebruikersnaam</strong>
                                     <span class="pull-right">
                                         {>userName}
                                         <sup><{status}></sup>
                                     </span>
                                 </li>
                                 <li class="list-group-item">
-                                    <strong>Last Active</strong>
-                                    <span class="pull-right">{_ago laston} ago</span>
+                                    <strong>Laast actief</strong>
+                                    <span class="pull-right">{_ago laston} geleden</span>
                                 </li>
                                 <li class="list-group-item">
                                     <strong>Status</strong>
                                     <span class="pull-right">
                                         {#if dead}
-                                            <strong style="color: #900;">DEAD</strong> <{killedBy}>
+                                            <strong style="color: #900;">DOOD</strong> <{killedBy}>
                                         {/if}
                                         {#unless dead}
-                                            <strong style="color: #090;">Alive</strong>
+                                            <strong style="color: #090;">Levend</strong>
                                         {/unless}
                                     </span>
                                 </li>
                                 {#if showRole}
                                     <li class="list-group-item">
-                                        <strong>Role</strong>
+                                        <strong>Rol</strong>
                                         <span class="pull-right">
                                             {role}
                                         </span>
                                     </li>
                                 {/if}
                                 <li class="list-group-item">
-                                    <strong>Rank</strong>
+                                    <strong>Rang</strong>
                                     <span class="pull-right">
                                         {rank}
                                     </span>
                                 </li>
                                 <li class="list-group-item">
-                                    <strong>Wealth</strong>
+                                    <strong>Gesteldheid</strong>
                                     <span class="pull-right">
                                         {moneyRank}
                                     </span>
@@ -197,7 +197,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Profile Picture</div>
+                        <div class="panel-heading">Profiel afbeelding</div>
 
                         <div class="panel-body profile-pic">
                             <img src="{picture}" style="max-height: 250px" class="img-responsive" alt="{user.name}\'s Profile" />
@@ -207,13 +207,13 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">Bio</div>
+                <div class="panel-heading">Persoonlijke omschrijving</div>
                 <div class="panel-body">
                     {#if bio}
                         [{bio}]
                     {/if}
                     {#unless bio}
-                        <em><small>The user has not set up their bio yet!</small></em>
+                        <em><small>Deze gebruiker heeft nog geen persoonlijke omschrijving</small></em>
                     {/unless}
                 </div>
             </div>

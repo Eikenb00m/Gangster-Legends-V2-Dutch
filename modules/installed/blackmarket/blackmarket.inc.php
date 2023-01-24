@@ -73,14 +73,14 @@
             $item = $hook->run($hookData, 1)["data"];
 
             if (!$item["id"]) {
-                return $this->error("This item does not exist");
+                return $this->error("Dit object bestaat niet");
             } 
 
             if ($item["cost"] > $this->user->info->US_money) {
-                return $this->error("You dont have enough money to buy a " . $item["name"]);
+                return $this->error("Je hebt niet genoeg geld om een " . $item["name"] . "te kopen!");
             } 
 
-            $this->error("You bought a " . $item["name"], "success");
+            $this->error("Je hebt succes vol een " . $item["name"], "gekocht");
 
             $this->user->subtract("US_money", $item["cost"]);
             $this->user->addItem($item["id"]);

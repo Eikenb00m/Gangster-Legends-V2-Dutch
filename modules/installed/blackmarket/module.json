@@ -1,12 +1,12 @@
 {
-    "name": "Black Market",
+    "name": "Zwarte Markt",
     "version": "1.0.0",
-    "description": "This module allows the user to buy weapons and armor.",
+    "description": "Deze module staat spelers toe wapens en bescherming te kopen",
     "author": {
         "name": "Chris Day",
         "url": "http:\/\/glscript.cdcoding.com"
     },
-    "pageName": "Black Market",
+    "pageName": "Zwarte Markt",
     "accessInJail": false,
     "requireLogin": true
 }

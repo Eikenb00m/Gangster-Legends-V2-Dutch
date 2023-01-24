@@ -42,16 +42,16 @@
             $item["damage"] *= 100;
 
             if (strlen($item["name"]) < 6) {
-                $errors[] = "Item name is to short, this must be atleast 5 characters";
+                $errors[] = "De object naam is te kort, het moet minimaal 5 tekens zijn";
             }
             if (!intval($item["damage"])) {
-                $errors[] = "No damage specified";
+                $errors[] = "Geen schade ingevuld";
             }
             if (!intval($item["type"])) {
-                $errors[] = "No type specified";
+                $errors[] = "Geen type ingevuld";
             }
             if (!intval($item["rank"])) {
-                $errors[] = "No rank specified";
+                $errors[] = "Geen rang in gevuld";
             } 
 
             return $errors;
@@ -86,7 +86,7 @@
                     $insert->execute();
 
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This item has been created"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "Dit object is aangemaakt"));
 
                 }
 
@@ -126,7 +126,7 @@
                     $update->bindParam(":id", $this->methodData->id);
                     $update->execute();
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This item has been updated"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "dit object is bijgewerkt"));
 
                 }
 
@@ -145,7 +145,7 @@
             $item = $this->getItem($this->methodData->id);
 
             if (!isset($item["id"])) {
-                return $this->html = $this->page->buildElement("error", array("text" => "This item does not exist"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Dit object bestaat niet"));
             }
 
             if (isset($this->methodData->commit)) {

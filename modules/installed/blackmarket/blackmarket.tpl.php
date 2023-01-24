@@ -18,10 +18,10 @@
                                         <span class="cooldown">
                                             {#money cost}
                                         </span> 
-                                        <a href="?page=inventory&action=information&item={id}" class="commit">View</a>
+                                        <a href="?page=inventory&action=information&item={id}" class="commit">Bekijk</a>
                                         &nbsp;
                                         <a href="?page=blackmarket&action=buy&item={id}&_CSFR={_CSFRToken}" class="commit">
-                                            Buy
+                                            Koop
                                         </a>
                                     </p>
                                 </div>

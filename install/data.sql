@@ -19,6 +19,17 @@ INSERT INTO `garage` (`GA_id`, `GA_uid`, `GA_car`, `GA_damage`, `GA_location`) V
 (23, 1, 4, 0, 3),
 (22, 3, 4, 2, 1);
 
+INSERT INTO `itemEffects` (`IE_effect`, `IE_item`, `IE_value`, `IE_desc`) VALUES
+('Increase % Attack', 1, '2', 'Door dit scherpe mes heb je 2% meer aanvals kracht.');
+
+INSERT INTO `itemMeta` (`IM_item`, `IM_meta`, `IM_value`) VALUES
+(1, 'cost', '15'),
+(1, 'description', 'Een goed scherp mes, je verhoogt je aanval hier mee met 2%'),
+(1, 'equipLevel', '1');
+
+INSERT INTO `items` (`I_id`, `I_name`, `I_type`) VALUES
+(1, 'Mes', 1);
+
 INSERT INTO `locations` (`L_id`, `L_name`, `L_cost`, `L_bullets`, `L_bulletCost`, `L_cooldown`) VALUES
 (1, 'Londen', 170, 11977, 100, 3600),
 (3, 'Rome', 220, 0, 100, 4800),

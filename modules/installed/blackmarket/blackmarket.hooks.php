@@ -1,8 +1,11 @@
 <?php
+new Hook("alterModuleData", function ($data) { 
+    return $data; 
+  });
     new hook("locationMenu", function () {
         return array(
             "url" => "?page=blackmarket", 
-            "text" => "Black Market", 
+            "text" => "Zwarte Markt", 
             "sort" => 100
         );
     });

@@ -6,6 +6,20 @@
         };
     });
 
+    $date = new DateTime();
+
+    $dateFormatter = IntlDateFormatter::create(
+      'nl_NL',
+      IntlDateFormatter::NONE,
+      IntlDateFormatter::NONE,
+      "Europe/Brussels",
+     IntlDateFormatter::GREGORIAN,
+      'EEEE D MMMM Y HH:mm:ss'
+    );
+    
+    $nowString = ucwords($dateFormatter->format($date)); // Dinsdag 24 Januari 2023 21:53:04
+
+    
     
     if (!class_exists("mainTemplate")) {
         class mainTemplate {
@@ -17,6 +31,7 @@
                 global $page;
 
                 $page->addToTemplate("gameTime", date("jS F Y, H:i:s"));
+                //$page->addToTemplate("gameTime1", echo $nowString);
      
                 $this->globalTemplates["success"] = '<div class="alert alert-success">
                     <button type="button" class="close">
@@ -79,7 +94,7 @@
                 </div>
                 <div class="text-center">
                     <small>
-                        {gameTime} - 
+                        {gameTime1} - 
                         {#if round}
                             {round.name}
                         {else}

@@ -13,7 +13,7 @@
     new hook("actionMenu", function ($user) {
         if ($user) return array(
             "url" => "?page=theft", 
-            "text" => "Car Theft", 
+            "text" => "Auto Diefstal", 
             "timer" => $user->getTimer("theft"),
             "templateTimer" => "theft_timer",
             "sort" => 200
@@ -22,8 +22,8 @@
 
     new Hook("membershipBenefit", function () {
         return array(
-            "title" => "Slide Hammer", 
-            "description" => "You use a slide hammer to increase your chances of stealing a car by 10%"
+            "title" => "Codegrabber", 
+            "description" => "Een slim apparaatje om de code van een auto sleutel te kopieeren, Je auto diefstallen stijgen met een kans van minimaal 10%."
         );
     });
 

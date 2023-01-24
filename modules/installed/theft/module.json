@@ -1,7 +1,7 @@
 {
-    "name": "Theft",
+    "name": "Auto Diefstal",
     "version": "1.0.0",
-    "description": "This module allows a user to commit theft.",
+    "description": "Deze module laat spelers auto's stelen.",
     "author": {
         "name": "Tom V",
         "url": "http:\/\/glscript.cdcoding.com"
@@ -12,21 +12,21 @@
     "adminGroup": "Game Mechanics",
     "admin": [
         {
-            "text": "View Theft",
+            "text": "Bekijk diefstal",
             "method": "view"
         },
         {
-            "text": "New Theft",
+            "text": "Nieuwe diefstal",
             "method": "new"
         },
         {
             "hide": true,
-            "text": "Edit Theft",
+            "text": "Bewerk diefstal",
             "method": "edit"
         },
         {
             "hide": true,
-            "text": "Delete Theft",
+            "text": "Verwijder diefstal",
             "method": "delete"
         }
     ]

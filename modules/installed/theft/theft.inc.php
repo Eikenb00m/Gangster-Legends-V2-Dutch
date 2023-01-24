@@ -4,7 +4,7 @@
         
         public $allowedMethods = array('id'=>array('type'=>'get'));
         
-        public $pageName = 'Car Theft';
+        public $pageName = 'Auto Diefstal';
         
         public function constructModule() {
             
@@ -37,7 +37,7 @@
                 $time = $this->user->getTimer('theft');
                 $crimeError = array(
                     "timer" => "theft",
-                    "text"=>"You cant attempt another theft untill your timer is up!",
+                    "text"=>"Je kan pas een nieuwe poging ondernemen als de tijd verstreken is!",
                     "time" => $this->user->getTimer("theft")
                 );
                 $this->html .= $this->page->buildElement('timer', $crimeError);
@@ -111,19 +111,19 @@
                 
                 if ($chance > $userChance && $jailChance == 1) {
                     $this->alerts[] = $this->page->buildElement('error', array(
-                        "text"=>'You failed to steal a '.$carName.', you were caught and sent to jail'
+                        "text"=>'Het is mislukt om een '.$carName.' te stelen, je bent ook nog eens opgepakt en naar de gevangenis gestuurd!'
                     ));
                     $this->user->updateTimer('jail', ($id*35), true);
                     $rewardValue = 0;
                 } else if ($chance > $userChance) {
                     $this->alerts[] = $this->page->buildElement('error', array(
-                        "text"=>'You failed to steal a '.$carName.'.'
+                        "text"=>'Het is mislukt om een '.$carName.' te stelen.'
                     ));
                     $rewardValue = 0;
                 } else {
                     $success = true;
                     $this->alerts[] = $this->page->buildElement('success', array(
-                        "text" => 'You successfuly stole a '.$carName.' with '.$carDamage.'% damage.'
+                        "text" => 'Je hebt succesvol een '.$carName.' gestolen met '.$carDamage.'% schade.'
                     ));
 
                     $this->user->add("US_exp", 2);

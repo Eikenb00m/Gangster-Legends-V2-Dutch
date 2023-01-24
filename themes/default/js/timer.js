@@ -57,7 +57,7 @@ function checkTimer(interval) {
         var output = hours+":"+mins+":"+sec;
 
         if (days > 0) {
-            output = days + " Day"+(days>1?"s":"")+" " + output
+            output = days + " Dag"+(days>1?"en":"")+" " + output
         }
 
         if ($(this).attr('data-timer-type') == 'name') {

@@ -3,7 +3,7 @@
     new hook("accountMenu", function () {
         return array(
             "url" => "?page=stats", 
-            "text" => "Game Stats", 
+            "text" => "Statestieken", 
             "sort" => 100
         );
     });
@@ -64,14 +64,14 @@
         <div class="card-counter info">
             <i class="fa fa-users"></i>
             <span class="count-numbers">'.number_format($stats["alive"]).'</span>
-            <span class="count-name">Users Alive</span>
+            <span class="count-name">Levende spelers</span>
         </div>
     </div>
     <div class="col-md-3">
         <div class="card-counter primary">
             <i class="fa fa-money"></i>
             <span class="count-numbers">'.number_shorten($stats["cash"], 2) .'</span>
-            <span class="count-name">Money</span>
+            <span class="count-name">Geld</span>
         </div>
     </div>
 
@@ -79,7 +79,7 @@
         <div class="card-counter danger">
             <i class="fa fa-shield"></i>
             <span class="count-numbers">'.number_shorten($stats["bullets"], 0) .'</span>
-            <span class="count-name">Bullets</span>
+            <span class="count-name">Kogels</span>
         </div>
     </div>
 
@@ -87,7 +87,7 @@
         <div class="card-counter success">
             <i class="fa fa-ticket"></i>
             <span class="count-numbers">'.number_shorten($stats["points"], 0) .'</span>
-            <span class="count-name">Points</span>
+            <span class="count-name">{points}</span>
         </div>
     </div>
 
@@ -99,6 +99,6 @@
             "size" => 12, 
             "html" => $html,
             "type" => "html", 
-            "title" => "Game Statistics"
+            "title" => "Spel statestieken"
         );
     });

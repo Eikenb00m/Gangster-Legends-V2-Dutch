@@ -2,11 +2,11 @@
 
     new Hook("currencyFormat", function () {
         return function ($money) { 
-            return "$" . number_format($money); 
+            return "€" . number_format($money); 
         };
     });
 
-
+    
     if (!class_exists("mainTemplate")) {
         class mainTemplate {
 

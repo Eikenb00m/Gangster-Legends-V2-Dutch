@@ -33,22 +33,22 @@
             $errors = array();
 
             if ($theft["chance"] > 100) {
-                $errors[] = "the chance must be below 100%";
+                $errors[] = "De kans moet onder de 100% zijn!";
             }
             if (strlen($theft["name"]) < 6) {
-                $errors[] = "Theft name is to short, this must be atleast 5 characters";
+                $errors[] = "De naam van de diefstal is te kort! Gebruik minimaal 5 tekens";
             }
             if (intval($theft["worstCar"]) > intval($theft["bestCar"])) {
-                $errors[] = "The minimum value is greater then the maximum value";
+                $errors[] = "De minimale waarde kan niet groter zijn dan de maximale waarde!";
             }
             if (!intval($theft["bestCar"])) {
-                $errors[] = "No maximum value specified";
+                $errors[] = "De diefstal moet een maximale waarde hebben";
             } 
             if (!intval($theft["worstCar"])) {
-                $errors[] = "No minimum value specified";
+                $errors[] = "De diefstal moet een minimale waarde hebben";
             } 
             if (!intval($theft["chance"])) {
-                $errors[] = "No chance specified";
+                $errors[] = "De diefstal moet een kans hebben!";
             }
 
             return $errors;
@@ -78,7 +78,7 @@
                         ":bestCar" => $this->methodData->bestCar
                     ));
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This theft has been created"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "De diefstal is aangemaakt"));
 
                 }
 
@@ -116,7 +116,7 @@
                         ":id" => $this->methodData->id
                     ));
 
-                    $this->html .= $this->page->buildElement("success", array("text" => "This theft has been updated"));
+                    $this->html .= $this->page->buildElement("success", array("text" => "Deze diefstal is bijgewerkt!"));
 
                 }
 
@@ -135,7 +135,7 @@
             $theft = $this->getTheft($this->methodData->id);
 
             if (!isset($theft["id"])) {
-                return $this->html = $this->page->buildElement("error", array("text" => "This theft does not exist"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Deze diefstal bestaat niet!"));
             }
 
             if (isset($this->methodData->commit)) {

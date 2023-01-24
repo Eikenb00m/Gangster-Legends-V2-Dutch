@@ -39,11 +39,11 @@
             $errors = array();
 
             if (strlen($theme["name"]) < 5) {
-                $errors[] = "Theme name is to short, this must be atleast 5 characters";
+                $errors[] = "De thema naam is te kort. Deze moet minimaal 5 tekens zijn.";
             }
 
             if ($theme["id"] == 1 && $theme["themeLevel"] != 2) {
-                $errors[] = "Theme ID 1 must be an admin";
+                $errors[] = "Thema ID 1 is het Admin Thema!";
             }
 
             return $errors;
@@ -59,7 +59,7 @@
 
                 if ($fileName == $themeFile["name"]) {
                     return $this->page->buildElement("error", array(
-                        "text" => "Please provide a module in the correctFormat (themeName.zip)"
+                        "text" => "Upload het thema in het juiste formaat! (themeName.zip)"
                     ));
                 } 
 
@@ -83,7 +83,7 @@
                     $zip->extractTo($installLocation);
                     $zip->close();
                     $this->html .= $this->page->buildElement("success", array(
-                        "text" => "Theme installed successfully!"
+                        "text" => "Thema succesvol geinstalleerd!"
                     ));
                     return $this->method_options();
                 }
@@ -158,13 +158,13 @@
         public function method_delete () {
 
             if (!isset($this->methodData->id)) {
-                return $this->html = $this->page->buildElement("error", array("text" => "No theme ID specified"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Geen thema ID ingegeven!"));
             }
 
             $theme = $this->getTheme($this->methodData->id);
 
             if (!isset($theme["id"])) {
-                return $this->html = $this->page->buildElement("error", array("text" => "This theme does not exist"));
+                return $this->html = $this->page->buildElement("error", array("text" => "Dit thema bestaat niet!"));
             }
 
             if (isset($this->methodData->commit)) {

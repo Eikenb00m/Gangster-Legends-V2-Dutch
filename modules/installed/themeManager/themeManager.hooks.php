@@ -5,7 +5,7 @@
         $gameName = _setting("game_name");
        	if ($gameName == "Game Name") return array( 
             "type" => "info", 
-            "text" => "The game name is not set, To update it please go to the <a href='?page=admin&module=themeManager'>theme manager</a>!"
+            "text" => "De naam van het spel is niet ingesteld! Ga naar de <a href='?page=admin&module=themeManager'>thema manager</a>!"
         );
        	return false;
     });

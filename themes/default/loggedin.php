@@ -1,66 +1,70 @@
 <?php
 
-    new Hook("currencyFormat", function () {
-        return function ($money) { 
-            return "€" . number_format($money); 
-        };
-    });
+new Hook("currencyFormat", function () {
+    return function ($money) {
+        return "€" . number_format($money);
+    };
+});
 
-    $date = new DateTime();
 
-    $dateFormatter = IntlDateFormatter::create(
-      'nl_NL',
-      IntlDateFormatter::NONE,
-      IntlDateFormatter::NONE,
-      "Europe/Brussels",
-     IntlDateFormatter::GREGORIAN,
-      'EEEE D MMMM Y HH:mm:ss'
-    );
-    
-    $nowString = ucwords($dateFormatter->format($date)); // Dinsdag 24 Januari 2023 21:53:04
 
-    
-    
-    if (!class_exists("mainTemplate")) {
-        class mainTemplate {
 
-            public $globalTemplates = array();
 
-            public function __construct() {
+if (!class_exists("mainTemplate")) {
+    class mainTemplate {
 
-                global $page;
+        public $globalTemplates = array();
 
-                $page->addToTemplate("gameTime", date("jS F Y, H:i:s"));
-                //$page->addToTemplate("gameTime1", echo $nowString);
-     
-                $this->globalTemplates["success"] = '<div class="alert alert-success">
+
+        public function __construct() {
+
+            global $page;
+
+            $page->addToTemplate("gameTime", $this->generateNowString());
+
+            $this->globalTemplates["success"] = '<div class="alert alert-success">
                     <button type="button" class="close">
                         <span>&times;</span>
                     </button>
                     <{text}>
                 </div>';
-                $this->globalTemplates["error"] = '<div class="alert alert-danger">
+            $this->globalTemplates["error"] = '<div class="alert alert-danger">
                     <button type="button" class="close">
                         <span>&times;</span>
                     </button>
                     <{text}>
                 </div>';
-                $this->globalTemplates["info"] = '<div class="alert alert-info">
+            $this->globalTemplates["info"] = '<div class="alert alert-info">
                     <button type="button" class="close">
                         <span>&times;</span>
                     </button>
                     <{text}>
                 </div>';
-                $this->globalTemplates["warning"] = '<div class="alert alert-warning">
+            $this->globalTemplates["warning"] = '<div class="alert alert-warning">
                     <button type="button" class="close">
                         <span>&times;</span>
                     </button>
                     <{text}>
                 </div>';
 
-            }
-        
-            public $pageMain =  '<!DOCTYPE html>
+        }
+
+        private function generateNowString(){
+            $date = new DateTime();
+
+            $dateFormatter = IntlDateFormatter::create(
+                'nl_NL',
+                IntlDateFormatter::NONE,
+                IntlDateFormatter::NONE,
+                "Europe/Brussels",
+                IntlDateFormatter::GREGORIAN,
+                'EEEE D MMMM Y HH:mm:ss'
+            );
+
+            return ucwords($dateFormatter->format($date));
+        }
+
+        public $pageMain =  '<!DOCTYPE html>
     <html>
         <head>
             <link href="themes/{_theme}/css/bootstrap.min.css" rel="stylesheet" />
@@ -88,13 +92,13 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <img src="themes/{_theme}/images/logo.png" alt="Gangster Legends" /> 
+                            <img src="themes/{_theme}/images/logo.png" alt="Gangster Legends" />
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
                     <small>
-                        {gameTime1} - 
+                        {gameTime} -
                         {#if round}
                             {round.name}
                         {else}
@@ -103,9 +107,9 @@
                     </small>
                 </div>
             </div>
-                
+
             <div class="container">
-                <div class="side-bar"> 
+                <div class="side-bar">
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -207,7 +211,7 @@
                     {/each}
 
                 </div>
-                    
+
                 <div class="game-container text-center">
                     <div data-ajax-element="alerts" data-ajax-type="html">
                         <{alerts}>
@@ -232,7 +236,7 @@
             {/each}
         </body>
     </html>';
-            
-        }
+
     }
+}
 ?>
